@@ -1,5 +1,9 @@
 steps:
+- name: Before Build
+  args: ['bash', '-c', 'echo After Build']
 - name: 'gcr.io/cloud-builders/docker'
   args: [ 'build', '-t', 'gcr.io/sonorous-crane-219712/$REPO_NAME:$COMMIT_SHA', '.' ]
+- name: After Build
+  args: ['bash', '-c', 'echo After Build']
 images:
 - 'gcr.io/sonorous-crane-219712/$REPO_NAME:$COMMIT_SHA'
